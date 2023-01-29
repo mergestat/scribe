@@ -21,3 +21,5 @@
 go.work
 
 dist/
+
+.DS_Store
