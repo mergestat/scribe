@@ -38,23 +38,9 @@ changelog:
 brews:
   -
     name: scribe
-
-    # GOARM to specify which 32-bit arm version to use if there are multiple
-    # versions from the build section. Brew formulas support only one 32-bit
-    # version.
-    # Default is 6 for all artifacts or each id if there a multiple versions.
-    goarm: 6
-
-    # GOAMD64 to specify which amd64 version to use if there are multiple
-    # versions from the build section.
-    # Default is v1.
-    goamd64: v3
-
     tap:
       owner: mergestat
       name: homebrew-scribe
-      # Optionally a token can be provided, if it differs from the token
-      # provided to GoReleaser
       token: "{{ .Env.GITHUB_TOKEN }}"
 
 
