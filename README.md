@@ -19,10 +19,15 @@ SELECT * FROM users WHERE first_name = 'patrick'
 The `--connection` flag is used to supply a connection string to the SQL database.
 It can also be set with the `SCRIBE_CONNECTION` environment variable.
 
-## How it works
-
-The CLI requires acces to a SQL database you intend to query so that it can introspect the schema to discover available tables, columns and types.
 You may also supply **additional SQL examples** from a local file to improve the quality of translations.
+
+## Installation
+
+### Homebrew
+
+```sh
+brew install mergestat/scribe/scribe
+```
 
 ## Roadmap
 - Additional SQL database support (today only `postgres` is supported)
