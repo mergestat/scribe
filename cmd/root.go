@@ -10,10 +10,10 @@ import (
 
 	"github.com/alecthomas/chroma/v2/quick"
 	"github.com/briandowns/spinner"
+	"github.com/mattn/go-isatty"
 	"github.com/mergestat/scribe/internal/prompt"
 	"github.com/mergestat/scribe/pkg/introspect"
 	"github.com/spf13/cobra"
-	"golang.org/x/sys/unix"
 )
 
 var (
@@ -99,9 +99,7 @@ var rootCmd = &cobra.Command{
 		format := "terminal256"
 		// detect if we're running in a terminal to determine the output format
 		// if we're not in a terminal, don't colorize the output for easier piping
-		// https://stackoverflow.com/questions/68889637/is-it-possible-to-detect-if-a-writer-is-tty-or-not
-		_, err = unix.IoctlGetWinsize(int(os.Stdout.Fd()), unix.TIOCGWINSZ)
-		if err != nil {
+		if !isatty.IsTerminal(os.Stdout.Fd()) {
 			format = ""
 		}
 
