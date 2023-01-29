@@ -3,7 +3,9 @@
 `scribe` is a command line interface for translating natural language prompts into SQL queries.
 It makes use of [OpenAI codex models](https://beta.openai.com/docs/models/codex) via the OpenAI API to execute translations.
 
-The user is expected to supply a connection string to the `scribe` command, so that the underlying SQL database may be introspected to supply tables, views, column names and column types to the prompt context.
+The user is expected to supply a database connection to the `scribe` command, so that the underlying SQL database may be introspected to supply tables, views, column names and column types to the prompt context.
+
+Additional examples can be supplied from a SQL file to improve the quality of the generations.
 
 ![Demo GIF](docs/demo.gif)
 
@@ -20,6 +22,13 @@ The `--connection` flag is used to supply a connection string to the SQL databas
 It can also be set with the `SCRIBE_CONNECTION` environment variable.
 
 You may also supply **additional SQL examples** from a local file to improve the quality of translations.
+This is not required, but can be valueable for supporting more complex query generation.
+Use the `--examples` flag to point to a local SQL file, which could look something like this:
+
+```sql
+-- select all git commits in the last 30 days
+SELECT * FROM git_commits WHERE author_when > (now() - '30 days'::interval)
+```
 
 ## Installation
 
