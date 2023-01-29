@@ -8,6 +8,7 @@ builds:
       - linux
       - windows
       - darwin
+    binary: scribe
 
 archives:
   - format: tar.gz
