@@ -1,7 +1,7 @@
 # Scribe 📝
 
-`scribe` is a command line interface for translating natural language prompts into SQL queries.
-It makes use of [OpenAI codex models](https://beta.openai.com/docs/models/codex) via the OpenAI API to execute translations.
+`scribe` is a command line interface for translating natural language prompts into SQL.
+It makes use of the [OpenAI codex models](https://beta.openai.com/docs/models/codex) (via API) to execute translations.
 
 The user is expected to supply a database connection to the `scribe` command, so that the underlying SQL database may be introspected to supply tables, views, column names and column types to the prompt context.
 
